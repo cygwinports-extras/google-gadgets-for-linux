@@ -1,0 +1,19 @@
+DESCRIPTION="Google Gadgets for Linux"
+HOMEPAGE="http://code.google.com/p/google-gadgets-for-linux/"
+SRC_URI="http://google-gadgets-for-linux.googlecode.com/files/${P}.tar.bz2"
+PATCH_URI="
+	0.10.5-host-cygwin.patch
+	0.10.5-no-undefined.patch
+	0.10.5-parallel-make.patch
+	0.10.5-gcc34.patch
+"
+
+DIFF_EXCLUDES="libltdl"
+
+CYGCONF_ARGS="
+	--disable-static
+	--disable-werror
+	--with-browser-plugins-dir=/usr/lib/mozilla/plugins
+	--with-mozjs-libname=cygjs.dll
+	LIBMOZJS_CFLAGS=-I/usr/include/js LIBMOZJS_LIBS=-ljs
+"
