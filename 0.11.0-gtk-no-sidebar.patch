@@ -1,0 +1,13 @@
+http://code.google.com/p/google-gadgets-for-linux/issues/detail?id=311
+
+--- origsrc/google-gadgets-for-linux-0.11.0/hosts/gtk/ggl-gtk.desktop.in	2009-03-14 23:12:45.000000000 -0500
++++ src/google-gadgets-for-linux-0.11.0/hosts/gtk/ggl-gtk.desktop.in	2009-06-24 11:05:17.740831700 -0500
+@@ -3,7 +3,7 @@ Encoding=UTF-8
+ _Name=HOST_GTK_DESKTOP_NAME
+ _Comment=HOST_GTK_DESKTOP_COMMENT
+ TryExec=@bindir@/ggl-gtk
+-Exec=@bindir@/ggl-gtk %F
++Exec=@bindir@/ggl-gtk -ns %F
+ Icon=google-gadgets
+ Terminal=false
+ StartupNotify=true

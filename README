@@ -1,0 +1,355 @@
+google-gadgets-for-linux
+------------------------------------------
+Google Gadgets for Linux provides a platform for running desktop gadgets 
+under Linux, catering to the unique needs of Linux users. It's 
+compatible with the gadgets written for Google Desktop for Windows as 
+well as the Universal Gadgets on iGoogle. Following Linux norms, this 
+project is open-sourced under the Apache License.
+
+Runtime requirements:
+  cygwin-1.7.0-50
+  libcairo2-1.8.6-10
+  libcurl4-7.19.4-1
+  libdbus1_3-1.2.14-1
+  libfontconfig1-2.6.0-10
+  libgcc1-4.3.2-2
+  libgdk_pixbuf2.0_0-2.16.2-1
+  libglib2.0_0-2.20.3-1
+  libgstreamer0.10_0-0.10.23-1
+  libgstvideo0.10_0-0.10.23-1
+  libgtk2.0_0-2.16.2-1
+  libltdl7-2.2.7a-12
+  libpango1.0_0-1.24.2-1
+  libQtCore4-4.5.1-1
+  libQtGui4-4.5.1-1
+  libQtNetwork4-4.5.1-1
+  libQtScript4-4.5.1-1
+  libQtWebKit4-4.5.1-1
+  librsvg2_2-2.26.0-1
+  libsoup2.4_1-2.26.2-1
+  libssp0-4.3.2-2
+  libstartup-notification1_0-0.10-1
+  libstdc++6-4.3.2-2
+  libwebkit1.0_2-1.1.10-1
+  libX11_6-1.2-10
+  libXext6-1.0.5-10
+  libxml2-2.7.3-10
+  libXrender1-0.9.4-10
+  zlib0-1.2.3-10
+
+Build requirements:
+(besides corresponding -devel packages)
+  autoconf2.5-2.63-10
+  automake1.10-1.10.2-10
+  binutils-20080624-2
+  cygport-0.9.7-1
+  gawk-3.1.6-2
+  gcc4-core-4.3.2-2
+  gcc4-g++-4.3.2-2
+  intltool-0.40.6-1
+  libtool-2.2.7a-13
+  make-3.81-2
+  pkg-config-0.23b-10
+  sed-4.1.5-2
+
+Canonical website:
+  http://code.google.com/p/google-gadgets-for-linux/
+
+Canonical download:
+  http://code.google.com/p/google-gadgets-for-linux/downloads/list
+
+-------------------------------------------
+
+Build instructions:
+  unpack google-gadgets-for-linux-0.11.0-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./google-gadgets-for-linux-0.11.0-X.cygport all
+
+This will create:
+  /usr/src/google-gadgets-for-linux-0.11.0-X-src.tar.bz2
+  /usr/src/google-gadgets-common-0.11.0-X.tar.bz2
+  /usr/src/google-gadgets-gtk-0.11.0-X.tar.bz2
+  /usr/src/google-gadgets-qt-0.11.0-X.tar.bz2
+  /usr/src/libggadget1.0-devel-0.11.0-X.tar.bz2
+  /usr/src/libggadget1.0_0-0.11.0-X.tar.bz2
+  /usr/src/libggadget-gtk1.0-devel-0.11.0-X.tar.bz2
+  /usr/src/libggadget-gtk1.0_0-0.11.0-X.tar.bz2
+  /usr/src/libggadget-qt1.0-devel-0.11.0-X.tar.bz2
+  /usr/src/libggadget-qt1.0_0-0.11.0-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary packages:
+
+(google-gadgets-common)
+  /etc/postinstall/google-gadgets-for-linux.sh
+  /usr/lib/google-gadgets/modules/analytics-usage-collector.dll
+  /usr/lib/google-gadgets/modules/analytics-usage-collector.la
+  /usr/lib/google-gadgets/modules/curl-xml-http-request.dll
+  /usr/lib/google-gadgets/modules/curl-xml-http-request.la
+  /usr/lib/google-gadgets/modules/cygxml2-xml-parser.dll
+  /usr/lib/google-gadgets/modules/dbus-script-class.dll
+  /usr/lib/google-gadgets/modules/dbus-script-class.la
+  /usr/lib/google-gadgets/modules/default-framework.dll
+  /usr/lib/google-gadgets/modules/default-framework.la
+  /usr/lib/google-gadgets/modules/default-options.dll
+  /usr/lib/google-gadgets/modules/default-options.la
+  /usr/lib/google-gadgets/modules/google-gadget-manager.dll
+  /usr/lib/google-gadgets/modules/google-gadget-manager.la
+  /usr/lib/google-gadgets/modules/gst-audio-framework.dll
+  /usr/lib/google-gadgets/modules/gst-audio-framework.la
+  /usr/lib/google-gadgets/modules/gst-video-element.dll
+  /usr/lib/google-gadgets/modules/gst-video-element.la
+  /usr/lib/google-gadgets/modules/html-flash-element.dll
+  /usr/lib/google-gadgets/modules/html-flash-element.la
+  /usr/lib/google-gadgets/modules/libxml2-xml-parser.la
+  /usr/lib/google-gadgets/modules/linux-system-framework.dll
+  /usr/lib/google-gadgets/modules/linux-system-framework.la
+  /usr/share/doc/google-gadgets-for-linux/AUTHORS
+  /usr/share/doc/google-gadgets-for-linux/COPYING
+  /usr/share/doc/google-gadgets-for-linux/ChangeLog
+  /usr/share/doc/google-gadgets-for-linux/README
+  /usr/share/doc/google-gadgets-for-linux/THANKS
+  /usr/share/google-gadgets/analog-clock.gg
+  /usr/share/google-gadgets/designer.gg
+  /usr/share/google-gadgets/digital-alarm-clock.gg
+  /usr/share/google-gadgets/google-gadget-browser.gg
+  /usr/share/google-gadgets/igoogle.gg
+  /usr/share/google-gadgets/photos.gg
+  /usr/share/google-gadgets/resources.gg
+  /usr/share/google-gadgets/rss.gg
+  /usr/share/icons/hicolor/128x128/apps/google-gadgets.png
+  /usr/share/icons/hicolor/128x128/mimetypes/application-x-google-gadget.png
+  /usr/share/icons/hicolor/192x192/apps/google-gadgets.png
+  /usr/share/icons/hicolor/192x192/mimetypes/application-x-google-gadget.png
+  /usr/share/icons/hicolor/32x32/apps/google-gadgets.png
+  /usr/share/icons/hicolor/32x32/mimetypes/application-x-google-gadget.png
+  /usr/share/icons/hicolor/48x48/apps/google-gadgets.png
+  /usr/share/icons/hicolor/48x48/mimetypes/application-x-google-gadget.png
+  /usr/share/icons/hicolor/64x64/apps/google-gadgets.png
+  /usr/share/icons/hicolor/64x64/mimetypes/application-x-google-gadget.png
+  /usr/share/mime/packages/00-google-gadgets.xml
+  /usr/share/pixmaps/google-gadgets.png
+
+(google-gadgets-gtk)
+  /usr/bin/cygggadget-webkitjs-1.0-0.dll
+  /usr/bin/ggl-gtk.exe
+  /usr/lib/google-gadgets/modules/gtk-edit-element.dll
+  /usr/lib/google-gadgets/modules/gtk-edit-element.la
+  /usr/lib/google-gadgets/modules/gtk-flash-element.dll
+  /usr/lib/google-gadgets/modules/gtk-flash-element.la
+  /usr/lib/google-gadgets/modules/gtk-system-framework.dll
+  /usr/lib/google-gadgets/modules/gtk-system-framework.la
+  /usr/lib/google-gadgets/modules/gtkwebkit-browser-element.dll
+  /usr/lib/google-gadgets/modules/gtkwebkit-browser-element.la
+  /usr/lib/google-gadgets/modules/soup-xml-http-request.dll
+  /usr/lib/google-gadgets/modules/soup-xml-http-request.la
+  /usr/lib/google-gadgets/modules/webkit-script-runtime.dll
+  /usr/lib/google-gadgets/modules/webkit-script-runtime.la
+  /usr/share/applications/ggl-designer.desktop
+  /usr/share/applications/ggl-gtk.desktop
+
+(google-gadgets-qt)
+  /usr/bin/ggl-qt.exe
+  /usr/lib/google-gadgets/modules/qt-edit-element.dll
+  /usr/lib/google-gadgets/modules/qt-edit-element.la
+  /usr/lib/google-gadgets/modules/qt-script-runtime.dll
+  /usr/lib/google-gadgets/modules/qt-script-runtime.la
+  /usr/lib/google-gadgets/modules/qt-system-framework.dll
+  /usr/lib/google-gadgets/modules/qt-system-framework.la
+  /usr/lib/google-gadgets/modules/qt-xml-http-request.dll
+  /usr/lib/google-gadgets/modules/qt-xml-http-request.la
+  /usr/lib/google-gadgets/modules/qtwebkit-browser-element.dll
+  /usr/lib/google-gadgets/modules/qtwebkit-browser-element.la
+  /usr/share/applications/ggl-qt.desktop
+
+(libggadget1.0_0)
+  /usr/bin/cygggadget-1.0-0.dll
+  /usr/bin/cygggadget-dbus-1.0-0.dll
+  /usr/bin/cygggadget-js-1.0-0.dll
+  /usr/bin/cygggadget-npapi-1.0-0.dll
+  /usr/bin/cygggadget-xdg-1.0-0.dll
+
+(libggadget1.0-devel)
+  /usr/include/google-gadgets/ggadget/anchor_element.h
+  /usr/include/google-gadgets/ggadget/audioclip_interface.h
+  /usr/include/google-gadgets/ggadget/backoff.h
+  /usr/include/google-gadgets/ggadget/basic_element.h
+  /usr/include/google-gadgets/ggadget/button_element.h
+  /usr/include/google-gadgets/ggadget/canvas_interface.h
+  /usr/include/google-gadgets/ggadget/canvas_utils.h
+  /usr/include/google-gadgets/ggadget/checkbox_element.h
+  /usr/include/google-gadgets/ggadget/clip_region.h
+  /usr/include/google-gadgets/ggadget/color.h
+  /usr/include/google-gadgets/ggadget/combobox_element.h
+  /usr/include/google-gadgets/ggadget/common.h
+  /usr/include/google-gadgets/ggadget/content_item.h
+  /usr/include/google-gadgets/ggadget/contentarea_element.h
+  /usr/include/google-gadgets/ggadget/copy_element.h
+  /usr/include/google-gadgets/ggadget/dbus/dbus_proxy.h
+  /usr/include/google-gadgets/ggadget/dbus/dbus_result_receiver.h
+  /usr/include/google-gadgets/ggadget/decorated_view_host.h
+  /usr/include/google-gadgets/ggadget/details_view_data.h
+  /usr/include/google-gadgets/ggadget/details_view_decorator.h
+  /usr/include/google-gadgets/ggadget/digest_utils.h
+  /usr/include/google-gadgets/ggadget/dir_file_manager.h
+  /usr/include/google-gadgets/ggadget/display_window.h
+  /usr/include/google-gadgets/ggadget/div_element.h
+  /usr/include/google-gadgets/ggadget/docked_main_view_decorator.h
+  /usr/include/google-gadgets/ggadget/edit_element_base.h
+  /usr/include/google-gadgets/ggadget/element_factory.h
+  /usr/include/google-gadgets/ggadget/elements.h
+  /usr/include/google-gadgets/ggadget/encryptor_interface.h
+  /usr/include/google-gadgets/ggadget/event.h
+  /usr/include/google-gadgets/ggadget/extension_manager.h
+  /usr/include/google-gadgets/ggadget/file_manager_factory.h
+  /usr/include/google-gadgets/ggadget/file_manager_interface.h
+  /usr/include/google-gadgets/ggadget/file_manager_wrapper.h
+  /usr/include/google-gadgets/ggadget/file_system_interface.h
+  /usr/include/google-gadgets/ggadget/floating_main_view_decorator.h
+  /usr/include/google-gadgets/ggadget/font_interface.h
+  /usr/include/google-gadgets/ggadget/framed_view_decorator_base.h
+  /usr/include/google-gadgets/ggadget/framework_interface.h
+  /usr/include/google-gadgets/ggadget/gadget.h
+  /usr/include/google-gadgets/ggadget/gadget_consts.h
+  /usr/include/google-gadgets/ggadget/gadget_manager_interface.h
+  /usr/include/google-gadgets/ggadget/graphics_interface.h
+  /usr/include/google-gadgets/ggadget/host_interface.h
+  /usr/include/google-gadgets/ggadget/host_utils.h
+  /usr/include/google-gadgets/ggadget/image_cache.h
+  /usr/include/google-gadgets/ggadget/image_interface.h
+  /usr/include/google-gadgets/ggadget/img_element.h
+  /usr/include/google-gadgets/ggadget/item_element.h
+  /usr/include/google-gadgets/ggadget/js/js_utils.h
+  /usr/include/google-gadgets/ggadget/js/jscript_massager.h
+  /usr/include/google-gadgets/ggadget/label_element.h
+  /usr/include/google-gadgets/ggadget/light_map.h
+  /usr/include/google-gadgets/ggadget/listbox_element.h
+  /usr/include/google-gadgets/ggadget/locales.h
+  /usr/include/google-gadgets/ggadget/localized_file_manager.h
+  /usr/include/google-gadgets/ggadget/logger.h
+  /usr/include/google-gadgets/ggadget/main_loop_interface.h
+  /usr/include/google-gadgets/ggadget/main_view_decorator_base.h
+  /usr/include/google-gadgets/ggadget/math_utils.h
+  /usr/include/google-gadgets/ggadget/memory_options.h
+  /usr/include/google-gadgets/ggadget/menu_interface.h
+  /usr/include/google-gadgets/ggadget/messages.h
+  /usr/include/google-gadgets/ggadget/module.h
+  /usr/include/google-gadgets/ggadget/npapi/npapi_plugin.h
+  /usr/include/google-gadgets/ggadget/object_element.h
+  /usr/include/google-gadgets/ggadget/object_videoplayer.h
+  /usr/include/google-gadgets/ggadget/options_interface.h
+  /usr/include/google-gadgets/ggadget/permissions.h
+  /usr/include/google-gadgets/ggadget/popout_main_view_decorator.h
+  /usr/include/google-gadgets/ggadget/progressbar_element.h
+  /usr/include/google-gadgets/ggadget/registerable_interface.h
+  /usr/include/google-gadgets/ggadget/run_once.h
+  /usr/include/google-gadgets/ggadget/scoped_ptr.h
+  /usr/include/google-gadgets/ggadget/script_context_interface.h
+  /usr/include/google-gadgets/ggadget/script_runtime_interface.h
+  /usr/include/google-gadgets/ggadget/script_runtime_manager.h
+  /usr/include/google-gadgets/ggadget/scriptable_array.h
+  /usr/include/google-gadgets/ggadget/scriptable_binary_data.h
+  /usr/include/google-gadgets/ggadget/scriptable_enumerator.h
+  /usr/include/google-gadgets/ggadget/scriptable_event.h
+  /usr/include/google-gadgets/ggadget/scriptable_file_system.h
+  /usr/include/google-gadgets/ggadget/scriptable_framework.h
+  /usr/include/google-gadgets/ggadget/scriptable_function.h
+  /usr/include/google-gadgets/ggadget/scriptable_helper.h
+  /usr/include/google-gadgets/ggadget/scriptable_holder.h
+  /usr/include/google-gadgets/ggadget/scriptable_image.h
+  /usr/include/google-gadgets/ggadget/scriptable_interface.h
+  /usr/include/google-gadgets/ggadget/scriptable_map.h
+  /usr/include/google-gadgets/ggadget/scriptable_menu.h
+  /usr/include/google-gadgets/ggadget/scriptable_options.h
+  /usr/include/google-gadgets/ggadget/scriptable_view.h
+  /usr/include/google-gadgets/ggadget/scrollbar_element.h
+  /usr/include/google-gadgets/ggadget/scrolling_element.h
+  /usr/include/google-gadgets/ggadget/sidebar.h
+  /usr/include/google-gadgets/ggadget/signals.h
+  /usr/include/google-gadgets/ggadget/slot.h
+  /usr/include/google-gadgets/ggadget/small_object.h
+  /usr/include/google-gadgets/ggadget/string_utils.h
+  /usr/include/google-gadgets/ggadget/system_utils.h
+  /usr/include/google-gadgets/ggadget/text_frame.h
+  /usr/include/google-gadgets/ggadget/texture.h
+  /usr/include/google-gadgets/ggadget/unicode_utils.h
+  /usr/include/google-gadgets/ggadget/usage_collector_interface.h
+  /usr/include/google-gadgets/ggadget/uuid.h
+  /usr/include/google-gadgets/ggadget/variant.h
+  /usr/include/google-gadgets/ggadget/video_element_base.h
+  /usr/include/google-gadgets/ggadget/view.h
+  /usr/include/google-gadgets/ggadget/view_decorator_base.h
+  /usr/include/google-gadgets/ggadget/view_element.h
+  /usr/include/google-gadgets/ggadget/view_host_interface.h
+  /usr/include/google-gadgets/ggadget/view_interface.h
+  /usr/include/google-gadgets/ggadget/xdg/desktop_entry.h
+  /usr/include/google-gadgets/ggadget/xdg/utilities.h
+  /usr/include/google-gadgets/ggadget/xml_dom.h
+  /usr/include/google-gadgets/ggadget/xml_dom_interface.h
+  /usr/include/google-gadgets/ggadget/xml_http_request_interface.h
+  /usr/include/google-gadgets/ggadget/xml_http_request_utils.h
+  /usr/include/google-gadgets/ggadget/xml_parser_interface.h
+  /usr/include/google-gadgets/ggadget/xml_utils.h
+  /usr/include/google-gadgets/ggadget/zip_file_manager.h
+  /usr/lib/google-gadgets/include/ggadget/sysdeps.h
+  /usr/lib/libggadget-1.0.dll.a
+  /usr/lib/libggadget-1.0.la
+  /usr/lib/libggadget-dbus-1.0.dll.a
+  /usr/lib/libggadget-dbus-1.0.la
+  /usr/lib/libggadget-js-1.0.dll.a
+  /usr/lib/libggadget-js-1.0.la
+  /usr/lib/libggadget-npapi-1.0.dll.a
+  /usr/lib/libggadget-npapi-1.0.la
+  /usr/lib/libggadget-xdg-1.0.dll.a
+  /usr/lib/libggadget-xdg-1.0.la
+  /usr/lib/pkgconfig/libggadget-1.0.pc
+  /usr/lib/pkgconfig/libggadget-dbus-1.0.pc
+  /usr/lib/pkgconfig/libggadget-js-1.0.pc
+  /usr/lib/pkgconfig/libggadget-npapi-1.0.pc
+  /usr/lib/pkgconfig/libggadget-xdg-1.0.pc
+
+(libggadget-gtk1.0_0)
+  /usr/bin/cygggadget-gtk-1.0-0.dll
+
+(libggadget-gtk1.0-devel)
+  /usr/include/google-gadgets/ggadget/gtk/cairo_graphics.h
+  /usr/include/google-gadgets/ggadget/gtk/hotkey.h
+  /usr/include/google-gadgets/ggadget/gtk/key_convert.h
+  /usr/include/google-gadgets/ggadget/gtk/main_loop.h
+  /usr/include/google-gadgets/ggadget/gtk/menu_builder.h
+  /usr/include/google-gadgets/ggadget/gtk/npapi_plugin_element.h
+  /usr/include/google-gadgets/ggadget/gtk/single_view_host.h
+  /usr/include/google-gadgets/ggadget/gtk/tooltip.h
+  /usr/include/google-gadgets/ggadget/gtk/utilities.h
+  /usr/include/google-gadgets/ggadget/gtk/view_widget_binder.h
+  /usr/lib/libggadget-gtk-1.0.dll.a
+  /usr/lib/libggadget-gtk-1.0.la
+  /usr/lib/pkgconfig/libggadget-gtk-1.0.pc
+
+(libggadget-qt1.0_0)
+  /usr/bin/cygggadget-qt-1.0-0.dll
+
+(libggadget-qt1.0-devel)
+  /usr/include/google-gadgets/ggadget/qt/qt_graphics.h
+  /usr/include/google-gadgets/ggadget/qt/qt_main_loop.h
+  /usr/include/google-gadgets/ggadget/qt/qt_menu.h
+  /usr/include/google-gadgets/ggadget/qt/qt_view_host.h
+  /usr/include/google-gadgets/ggadget/qt/qt_view_widget.h
+  /usr/include/google-gadgets/ggadget/qt/utilities.h
+  /usr/lib/libggadget-qt-1.0.dll.a
+  /usr/lib/libggadget-qt-1.0.la
+  /usr/lib/pkgconfig/libggadget-qt-1.0.pc
+
+------------------
+
+Port Notes:
+
+----- version 0.11.0-1 -----
+Initial release for Cygwin 1.7.
+
+
+Cygwin port maintained by:
+http://sourceware.org/cygwinports/

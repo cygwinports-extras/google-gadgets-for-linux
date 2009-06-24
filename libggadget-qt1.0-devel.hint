@@ -1,0 +1,9 @@
+category: KDE
+requires: libggadget-qt1.0_0 libggadget1.0-devel libQtCore4-devel libQtGui4-devel libstdc++6-devel libX11-devel libXext-devel
+external-source: google-gadgets-for-linux
+sdesc: "Google Gadgets Qt4 library (development)"
+ldesc: "Google Gadgets for Linux provides a platform for running desktop 
+gadgets under Linux, catering to the unique needs of Linux users. It's 
+compatible with the gadgets written for Google Desktop for Windows as 
+well as the Universal Gadgets on iGoogle. Following Linux norms, this 
+project is open-sourced under the Apache License."

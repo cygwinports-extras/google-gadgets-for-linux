@@ -1,0 +1,57 @@
+DESCRIPTION="Google Gadgets for Linux"
+HOMEPAGE="http://code.google.com/p/google-gadgets-for-linux/"
+SRC_URI="http://google-gadgets-for-linux.googlecode.com/files/${P}.tar.bz2"
+PATCH_URI="
+	0.11.0-cygwin-host-linux.patch
+	0.11.0-cygwin-types.patch
+	0.11.0-no-undefined.patch
+	0.10.5-parallel-make.patch
+	0.11.0-gtk-no-sidebar.patch
+	0.11.0-qt-script-engine.patch
+"
+
+PKG_NAMES="${PN} google-gadgets-common google-gadgets-gtk google-gadgets-qt
+           libggadget1.0_0 libggadget1.0-devel
+           libggadget-gtk1.0_0 libggadget-gtk1.0-devel
+           libggadget-qt1.0_0 libggadget-qt1.0-devel"
+google_gadgets_common_CONTENTS="--exclude=gtk* --exclude=qt* --exclude=soup*
+                                --exclude=webkit* --exclude=applications
+                                etc/ usr/lib/google-gadgets/modules/ usr/share/"
+google_gadgets_gtk_CONTENTS="usr/bin/*-webkitjs-1.0-0.dll usr/bin/ggl-gtk.exe
+                             usr/lib/google-gadgets/modules/gtk*
+                             usr/lib/google-gadgets/modules/soup*
+                             usr/lib/google-gadgets/modules/webkit*
+                             usr/share/applications/ggl-designer.desktop
+                             usr/share/applications/ggl-gtk.desktop"
+google_gadgets_qt_CONTENTS="usr/bin/ggl-qt.exe usr/lib/google-gadgets/modules/qt*
+                            usr/share/applications/ggl-qt.desktop"
+libggadget1_0_0_CONTENTS="--exclude=*gtk* --exclude=*qt* --exclude=*webkitjs*
+                          usr/bin/*-1.0-0.dll"
+libggadget1_0_devel_CONTENTS="--exclude=*gtk* --exclude=*qt* --exclude=*webkitjs*
+                              usr/include/ usr/lib/google-gadgets/include/
+                              usr/lib/lib* usr/lib/pkgconfig/"
+libggadget_gtk1_0_0_CONTENTS="usr/bin/cygggadget-gtk-1.0-0.dll"
+libggadget_gtk1_0_devel_CONTENTS="usr/include/google-gadgets/ggadget/gtk/
+                                  usr/lib/libggadget-gtk-1.0.*
+                                  usr/lib/pkgconfig/libggadget-gtk-1.0.pc"
+libggadget_qt1_0_0_CONTENTS="usr/bin/cygggadget-qt-1.0-0.dll"
+libggadget_qt1_0_devel_CONTENTS="usr/include/google-gadgets/ggadget/qt/
+                                 usr/lib/libggadget-qt-1.0.*
+                                 usr/lib/pkgconfig/libggadget-qt-1.0.pc"
+# this is just shared code for gtkwebkit-browser and webkitjs-script plugins
+PKG_IGNORE="usr/lib/libggadget-webkitjs-1.0.*"
+
+DIFF_EXCLUDES="libltdl"
+
+CYGCONF_ARGS="
+	--disable-static
+	--disable-werror
+	--disable-update-desktop-database
+	--disable-update-mime-database
+	--disable-gtkmoz-browser-element
+	--disable-smjs-script-runtime
+	--with-browser-plugins-dir=/usr/lib/mozilla/plugins
+	--with-gst-audio-sink=osssink
+	--with-oem-brand=Cygwin
+"
+LIBS="-lssp"

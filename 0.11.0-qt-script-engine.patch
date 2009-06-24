@@ -1,0 +1,51 @@
+QtScript should be the default if it is the only engine installed.
+
+--- origsrc/google-gadgets-for-linux-0.11.0/configure.ac	2009-06-23 23:47:05.990049900 -0500
++++ src/google-gadgets-for-linux-0.11.0/configure.ac	2009-06-23 23:49:42.214687000 -0500
+@@ -1290,6 +1290,15 @@ fi
+ 
+ PREDEFINED_MACROS="$PREDEFINED_MACROS -DGGL_GTK_XML_HTTP_REQUEST=\\\"$GGL_GTK_XML_HTTP_REQUEST\\\""
+ 
++GGL_QT_SCRIPT_ENGINE=smjs
++if test x$build_smjs_script_runtime = xyes; then
++  GGL_QT_SCRIPT_ENGINE=smjs
++elif test x$build_qt_script_runtime = xyes; then
++  GGL_QT_SCRIPT_ENGINE=qt
++fi
++
++PREDEFINED_MACROS="$PREDEFINED_MACROS -DGGL_QT_SCRIPT_ENGINE=\\\"$GGL_QT_SCRIPT_ENGINE\\\""
++
+ AM_CONDITIONAL(
+   [GGL_BUILD_GTK_HOST],
+   [test x$build_gtk_host = xyes])
+--- origsrc/google-gadgets-for-linux-0.11.0/hosts/qt/main.cc	2009-03-14 23:12:45.000000000 -0500
++++ src/google-gadgets-for-linux-0.11.0/hosts/qt/main.cc	2009-06-23 23:07:48.989285400 -0500
+@@ -53,6 +53,10 @@
+ #include <X11/extensions/Xrender.h>
+ #endif
+ 
++#ifndef GGL_QT_SCRIPT_ENGINE
++#define GGL_QT_SCRIPT_ENGINE "smjs"
++#endif
++
+ using ggadget::Variant;
+ 
+ static ggadget::qt::QtMainLoop *g_main_loop;
+@@ -93,7 +97,7 @@ static const char kHelpString[] =
+ #endif
+ #if QT_VERSION >= 0x040400
+   "  -s script_runtime, --script-runtime script_runtime\n"
+-  "      Specify which script runtime to use\n"
++  "      Specify which script runtime to use, default: " GGL_QT_SCRIPT_ENGINE "\n"
+   "      smjs - spidermonkey js runtime\n"
+   "      qt   - QtScript js runtime(experimental)\n"
+ #endif
+@@ -186,7 +190,7 @@ static void ExtractArgumentsValue() {
+       g_arguments.script_runtime == "qt-script-runtime") {
+     kGlobalExtensions[0] = "qt-script-runtime";
+   } else {
+-    kGlobalExtensions[0] = "smjs-script-runtime";
++    kGlobalExtensions[0] = GGL_QT_SCRIPT_ENGINE "-script-runtime";
+   }
+ 
+   if (g_argument_parser.GetArgumentValue(ARG_BACKGROUND, &arg_value))

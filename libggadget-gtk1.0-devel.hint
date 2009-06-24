@@ -1,0 +1,9 @@
+category: Gnome
+requires: libggadget-gtk1.0_0 libcairo-devel libfontconfig-devel libgdk_pixbuf2.0-devel libggadget1.0-devel libglib2.0-devel libgtk2.0-devel libpango1.0-devel librsvg2-devel libstdc++6-devel libstartup-notification1-devel libX11-devel
+external-source: google-gadgets-for-linux
+sdesc: "Google Gadgets GTK+ library (development)"
+ldesc: "Google Gadgets for Linux provides a platform for running desktop 
+gadgets under Linux, catering to the unique needs of Linux users. It's 
+compatible with the gadgets written for Google Desktop for Windows as 
+well as the Universal Gadgets on iGoogle. Following Linux norms, this 
+project is open-sourced under the Apache License."

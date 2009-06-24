@@ -1,0 +1,65 @@
+* wchar_t != uint16_t ??
+* sig_t is not a POSIX type.
+
+--- origsrc/google-gadgets-for-linux-0.11.0/extensions/webkit_script_runtime/converter.cc	2009-05-10 22:30:34.000000000 -0500
++++ src/google-gadgets-for-linux-0.11.0/extensions/webkit_script_runtime/converter.cc	2009-06-23 21:15:49.064601000 -0500
+@@ -182,7 +182,7 @@ static bool ConvertJSToNativeUTF16String
+   }
+   const JSChar *js_chars = JSStringGetCharactersPtr(js_str);
+   if (js_chars)
+-    *native_val = Variant(UTF16String(js_chars, JSStringGetLength(js_str)));
++    *native_val = Variant(UTF16String(reinterpret_cast<const UTF16Char*>(js_chars), JSStringGetLength(js_str)));
+   JSStringRelease(js_str);
+   return js_chars != NULL;
+ }
+@@ -544,7 +544,7 @@ static bool ConvertNativeToJSString(JSSc
+     }
+ 
+     JSStringRef js_str = JSStringCreateWithCharacters(
+-        static_cast<const JSChar *>(dest.c_str()), dest.length());
++        reinterpret_cast<const JSChar *>(dest.c_str()), dest.length());
+     *js_val = JSValueMakeString(js_ctx, js_str);
+     JSStringRelease(js_str);
+   }
+@@ -561,7 +561,7 @@ static bool ConvertNativeUTF16ToJSString
+   } else {
+     size_t len = VariantValue<const UTF16String &>()(native_val).length();
+     JSStringRef js_str =
+-        JSStringCreateWithCharacters(static_cast<const JSChar *>(ptr), len);
++        JSStringCreateWithCharacters(reinterpret_cast<const JSChar *>(ptr), len);
+     *js_val = JSValueMakeString(js_ctx, js_str);
+     JSStringRelease(js_str);
+   }
+--- origsrc/google-gadgets-for-linux-0.11.0/extensions/webkit_script_runtime/json.cc	2009-05-10 22:30:34.000000000 -0500
++++ src/google-gadgets-for-linux-0.11.0/extensions/webkit_script_runtime/json.cc	2009-06-23 21:17:17.874708000 -0500
+@@ -236,7 +236,7 @@ std::string ConvertJSStringToUTF8(JSStri
+   if (str) {
+     size_t length = JSStringGetLength(str);
+     const JSChar *chars = JSStringGetCharactersPtr(str);
+-    ConvertStringUTF16ToUTF8(chars, length, &result);
++    ConvertStringUTF16ToUTF8(reinterpret_cast<const UTF16Char *>(chars), length, &result);
+   }
+   return result;
+ }
+--- origsrc/google-gadgets-for-linux-0.11.0/ggadget/run_once.cc	2009-03-20 04:31:00.000000000 -0500
++++ src/google-gadgets-for-linux-0.11.0/ggadget/run_once.cc	2009-06-23 20:03:45.592782800 -0500
+@@ -97,7 +97,7 @@ class RunOnce::Impl : public WatchCallba
+       fd_ = RunAsClient();
+     }
+ 
+-    sig_t old_proc = signal(SIGPIPE, SIG_IGN);
++    void (*old_proc)(int) = signal(SIGPIPE, SIG_IGN);
+ 
+     fd_set fds;
+     FD_ZERO(&fds);
+--- origsrc/google-gadgets-for-linux-0.11.0/ggadget/unicode_utils.cc	2009-05-10 22:30:37.000000000 -0500
++++ src/google-gadgets-for-linux-0.11.0/ggadget/unicode_utils.cc	2009-06-23 20:06:53.560404900 -0500
+@@ -841,7 +841,7 @@ bool ConvertUTF16ToLocaleString(const UT
+     return true;
+ 
+   const wchar_t *wchar_input = NULL;
+-#if GGL_SIZEOF_WCHAR_T == 2
++#if GGL_SIZEOF_WCHAR_T == 2 && !defined(__CYGWIN__)
+   UTF16String utf16(input, input_size);
+   wchar_input = utf16.c_str();
+ #else

@@ -1,0 +1,44 @@
+--- origsrc/google-gadgets-for-linux-0.11.0/configure.ac	2009-06-23 23:22:18.933828000 -0500
++++ src/google-gadgets-for-linux-0.11.0/configure.ac	2009-06-23 23:22:46.926505800 -0500
+@@ -482,7 +482,7 @@ PREDEFINED_MACROS="-D__STDC_CONSTANT_MAC
+                    -DGGL_RESOURCE_DIR=\\\"$GGL_RESOURCE_DIR\\\""
+ 
+ case $host_os in
+-  *interix* | *mks* | *winnt* | *cygwin* | *mingw* )
++  *interix* | *mks* | *winnt* | *mingw* )
+     ggl_host_type=windows
+     PREDEFINED_MACROS="$PREDEFINED_MACROS -DGGL_HOST_WINDOWS=1"
+     GGL_PLATFORM_SHORT="\"win\""
+@@ -494,7 +494,7 @@ case $host_os in
+     GGL_PLATFORM_SHORT="\"mac\""
+     GGL_PLATFORM="\"mac\""
+     ;;
+-  *linux* )
++  *linux* | *cygwin* )
+     ggl_host_type=linux
+     PREDEFINED_MACROS="$PREDEFINED_MACROS -DGGL_HOST_LINUX=1"
+     GGL_PLATFORM_SHORT="\"linux\""
+--- origsrc/google-gadgets-for-linux-0.11.0/ggadget/npapi/npapi_utils.cc	2009-03-20 04:30:58.000000000 -0500
++++ src/google-gadgets-for-linux-0.11.0/ggadget/npapi/npapi_utils.cc	2009-06-23 23:29:14.497427700 -0500
+@@ -30,6 +30,12 @@
+ #include <ggadget/string_utils.h>
+ #include <ggadget/system_utils.h>
+ 
++#ifdef __CYGWIN__
++#define SOEXT ".dll"
++#else
++#define SOEXT ".so"
++#endif
++
+ namespace ggadget {
+ namespace npapi {
+ 
+@@ -54,7 +60,7 @@ static void ScanDirsForPlugins(const std
+       while ((dr = ::readdir(dp))) {
+         lib = dr->d_name;
+         std::string::size_type pos = lib.find_last_of(".");
+-        if (pos != lib.npos && lib.compare(pos, 3, ".so") == 0) {
++        if (pos != lib.npos && lib.compare(pos, ::strlen(SOEXT), SOEXT) == 0) {
+           lib = dirs[i] + "/" + lib;
+           paths->push_back(lib);
+           DLOG("Add plugin: %s", lib.c_str());
