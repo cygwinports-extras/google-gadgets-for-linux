@@ -11,3 +11,18 @@ http://code.google.com/p/google-gadgets-for-linux/issues/detail?id=311
  Icon=google-gadgets
  Terminal=false
  StartupNotify=true
+--- origsrc/google-gadgets-for-linux-0.11.0/hosts/gtk/sidebar_gtk_host.cc	2009-05-15 04:34:46.000000000 -0500
++++ src/google-gadgets-for-linux-0.11.0/hosts/gtk/sidebar_gtk_host.cc	2009-06-30 22:39:25.350304900 -0500
+@@ -800,8 +800,10 @@ class SideBarGtkHost::Impl {
+                           reinterpret_cast<guchar *>(&struts), 12);
+     } else {
+       has_strut_ = false;
+-      gdk_property_delete(sidebar_window_->window, net_wm_strut_);
+-      gdk_property_delete(sidebar_window_->window, net_wm_strut_partial_);
++      if (net_wm_strut_ != GDK_NONE)
++        gdk_property_delete(sidebar_window_->window, net_wm_strut_);
++      if (net_wm_strut_partial_ != GDK_NONE)
++        gdk_property_delete(sidebar_window_->window, net_wm_strut_partial_);
+       sidebar_host_->SetWindowType((flags_ & MATCHBOX_WORKAROUND) ?
+                                    GDK_WINDOW_TYPE_HINT_DIALOG :
+                                    GDK_WINDOW_TYPE_HINT_NORMAL);
