@@ -26,7 +26,8 @@ Runtime requirements:
   libQtScript4-4.5.1-1
   libQtWebKit4-4.5.1-1
   librsvg2_2-2.26.0-1
-  libsoup2.4_1-2.26.2-1
+  libsoup-gnome2.4_1-2.26.3-2
+  libsoup2.4_1-2.26.3-2
   libssp0-4.3.2-2
   libstartup-notification1_0-0.10-1
   libstdc++6-4.3.2-2
