@@ -1,5 +1,5 @@
 category: X11
-requires: libcurl4 libgcc1 libggadget1.0_0 libglib2.0_0 libgstreamer0.10_0 libgstvideo0.10_0 libssp0 libstdc++6
+requires: libcurl4 libgcc1 libggadget1.0_0 libglib2.0_0 libgstreamer0.10_0 libgstinterfaces0.10_0 libssp0 libstdc++6
 external-source: google-gadgets-for-linux
 sdesc: "Google Gadgets common plugins and files"
 ldesc: "Google Gadgets for Linux provides a platform for running desktop 

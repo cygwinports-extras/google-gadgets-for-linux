@@ -2,12 +2,10 @@ DESCRIPTION="Google Gadgets for Linux"
 HOMEPAGE="http://code.google.com/p/google-gadgets-for-linux/"
 SRC_URI="http://google-gadgets-for-linux.googlecode.com/files/${P}.tar.bz2"
 PATCH_URI="
+	mirror://gentoo/google-gadgets-0.11.1-gtk+-2.18.patch.bz2
 	0.11.0-cygwin-host-linux.patch
 	0.11.0-cygwin-types.patch
-	0.11.0-no-undefined.patch
-	0.10.5-parallel-make.patch
 	0.11.0-gtk-no-sidebar.patch
-	0.11.0-qt-script-engine.patch
 "
 
 PKG_NAMES="${PN} google-gadgets-common google-gadgets-gtk google-gadgets-qt
