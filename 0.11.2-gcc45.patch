@@ -1,0 +1,10 @@
+--- origsrc/google-gadgets-for-linux-0.11.2/extensions/analytics_usage_collector/analytics_usage_collector.cc	2009-03-14 23:12:42.000000000 -0500
++++ src/google-gadgets-for-linux-0.11.2/extensions/analytics_usage_collector/analytics_usage_collector.cc	2011-01-11 17:54:36.891436100 -0600
+@@ -17,6 +17,7 @@
+ #include <stdlib.h>
+ #include <cstring>
+ #include <string>
++#include <ctime>
+ 
+ #include <ggadget/logger.h>
+ #include <ggadget/options_interface.h>
