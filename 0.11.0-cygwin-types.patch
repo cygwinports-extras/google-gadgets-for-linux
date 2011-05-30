@@ -1,5 +1,4 @@
 * wchar_t != uint16_t ??
-* sig_t is not a POSIX type.
 
 --- origsrc/google-gadgets-for-linux-0.11.0/extensions/webkit_script_runtime/converter.cc	2009-05-10 22:30:34.000000000 -0500
 +++ src/google-gadgets-for-linux-0.11.0/extensions/webkit_script_runtime/converter.cc	2009-06-23 21:15:49.064601000 -0500
@@ -41,17 +40,6 @@
    }
    return result;
  }
---- origsrc/google-gadgets-for-linux-0.11.0/ggadget/run_once.cc	2009-03-20 04:31:00.000000000 -0500
-+++ src/google-gadgets-for-linux-0.11.0/ggadget/run_once.cc	2009-06-23 20:03:45.592782800 -0500
-@@ -97,7 +97,7 @@ class RunOnce::Impl : public WatchCallba
-       fd_ = RunAsClient();
-     }
- 
--    sig_t old_proc = signal(SIGPIPE, SIG_IGN);
-+    void (*old_proc)(int) = signal(SIGPIPE, SIG_IGN);
- 
-     fd_set fds;
-     FD_ZERO(&fds);
 --- origsrc/google-gadgets-for-linux-0.11.0/ggadget/unicode_utils.cc	2009-05-10 22:30:37.000000000 -0500
 +++ src/google-gadgets-for-linux-0.11.0/ggadget/unicode_utils.cc	2009-06-23 20:06:53.560404900 -0500
 @@ -841,7 +841,7 @@ bool ConvertUTF16ToLocaleString(const UT
