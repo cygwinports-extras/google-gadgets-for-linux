@@ -2,6 +2,7 @@ DESCRIPTION="Google Gadgets for Linux"
 HOMEPAGE="http://code.google.com/p/google-gadgets-for-linux/"
 SRC_URI="http://google-gadgets-for-linux.googlecode.com/files/${P}.tar.bz2"
 PATCH_URI="
+	mirror://portage/x11-misc/google-gadgets/files/google-gadgets-${PV}-glib-2.31.patch
 	0.11.0-cygwin-host-linux.patch
 	0.11.0-cygwin-types.patch
 	0.11.2-gcc45.patch
